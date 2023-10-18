@@ -86,6 +86,7 @@ void execute_external_helper(char *command, char **args)
 	if (command_path != NULL)
 	{
 		execute_child_process(command_path, args);
+		free(command_path);
 	}
 	else
 		printf("%s: command not found\n", command);
