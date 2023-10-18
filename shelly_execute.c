@@ -39,7 +39,7 @@ void execute_child_process(char *command_path, char **args)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("fork");
+		perror("Error:");
 		free_shelly_args(args);
 		return;
 	}
@@ -48,7 +48,7 @@ void execute_child_process(char *command_path, char **args)
 	{
 		if (execve(command_path, args, environ) == -1)
 		{
-			perror("execve");
+			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
 	}

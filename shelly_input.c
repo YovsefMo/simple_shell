@@ -14,6 +14,8 @@ char *get_user_input(void)
 	bytes_read = getline(&user_input, &len, stdin);
 	if (bytes_read == -1)
 	{
+		printf("Exiting shell....");
+
 		free(user_input);
 		return (NULL);
 	}

@@ -18,13 +18,13 @@ char **get_command_args(char *user_input)
 		args = realloc(args, (arg_count + 1) * sizeof(char *));
 		if (args == NULL)
 		{
-			perror("realloc");
+			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
 		args[arg_count] = strdup(token);
 		if (args[arg_count] == NULL)
 		{
-			perror("strdup");
+			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
 		arg_count++;
@@ -33,7 +33,7 @@ char **get_command_args(char *user_input)
 	args = realloc(args, (arg_count + 1) * sizeof(char *));
 	if (args == NULL)
 	{
-		perror("realloc");
+		perror("Error:");
 		exit(EXIT_FAILURE);
 	}
 	args[arg_count] = NULL;
