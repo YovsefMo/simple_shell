@@ -1,12 +1,12 @@
 #include "shelly.h"
 
 /**
- * free_args - Free memory allocated for command arguments
+ * free_shelly_args - Free memory allocated for command arguments
  * @args: Array of command arguments
  *
  * This function frees memory allocated for command arguments.
  */
-void free_args(char **args)
+void free_shelly_args(char **args)
 {
 	int i;
 

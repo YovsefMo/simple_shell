@@ -41,12 +41,12 @@ char **get_command_args(char *user_input)
 }
 
 /**
- * is_builtin - Check if a command is a built-in command
+ * shelly_builtin - Check if a command is a built-in command
  * @command: The command to check
  *
  * Return: 1 if built-in, 0 if not
  */
-int is_builtin(char *command)
+int shelly_builtin(char *command)
 {
 	if (command != NULL)
 	{
