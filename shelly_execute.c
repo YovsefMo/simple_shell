@@ -28,7 +28,6 @@ void execute_builtin_command(char *command, char **args)
 			printf("%s\n", *env);
 			env++;
 		}
-		free_shelly_args(args);
 	}
 }
 
