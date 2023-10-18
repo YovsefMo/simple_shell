@@ -10,7 +10,16 @@ void execute_builtin_command(char *command)
 {
 	if (strcmp(command, "exit") == 0)
 	{
-		exit(EXIT_SUCCESS);
+		int exit_code = 0;
+
+		char *exit_status = strtok(NULL, " ");
+
+		if (exit_status != NULL)
+		{
+			exit_code = atoi(exit_status);
+
+		}
+		exit(exit_code);
 	}
 	else if (strcmp(command, "env") == 0)
 	{
