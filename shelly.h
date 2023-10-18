@@ -20,7 +20,7 @@ int shelly_builtin(char *command);
 void show_shelly_prompt(void);
 
 void execute_shelly_command(char *user_input);
-void execute_builtin_command(char *command);
+void execute_builtin_command(char *command, char **args);
 void execute_external_command(char *command, char **args);
 void execute_external_helper(char *command, char **args);
 void execute_child_process(char *command_path, char **args);
