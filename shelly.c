@@ -39,8 +39,7 @@ int main(int argc, char **argv)
 	{
 		char *user_input;
 
-		do
-		{
+		do {
 			show_shelly_prompt();
 			user_input = get_user_input();
 
