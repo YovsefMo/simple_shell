@@ -40,7 +40,7 @@ void execute_child_process(char *command_path, char **args)
 	if (child_pid == -1)
 	{
 		perror("fork");
-		free_args(args);
+		free_shelly_args(args);
 		return;
 	}
 
@@ -73,7 +73,7 @@ void execute_external_helper(char *command, char **args)
 	if (new_path == NULL)
 	{
 		perror("malloc");
-		free_args(args);
+		free_shelly_args(args);
 		return;
 	}
 
@@ -134,7 +134,7 @@ void execute_shelly_command(char *user_input)
 
 	command = args[0];
 
-	if (is_builtin(command))
+	if (shelly_builtin(command))
 	{
 		execute_builtin_command(command);
 	}
@@ -143,5 +143,5 @@ void execute_shelly_command(char *user_input)
 		execute_external_command(command, args);
 	}
 
-	free_args(args);
+	free_shelly_args(args);
 }
