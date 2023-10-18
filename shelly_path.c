@@ -16,7 +16,7 @@ char *get_command_path(char *command)
 	path_copy = strdup(path_env);
 	if (path_copy == NULL)
 	{
-		perror("Error:");
+		perror("strdup");
 		exit(EXIT_FAILURE);
 	}
 
@@ -26,7 +26,7 @@ char *get_command_path(char *command)
 		command_path = malloc(strlen(token) + strlen(command) + 2);
 		if (command_path == NULL)
 		{
-			perror("Error:");
+			perror("malloc");
 			exit(EXIT_FAILURE);
 		}
 		sprintf(command_path, "%s/%s", token, command);

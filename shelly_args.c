@@ -18,13 +18,13 @@ char **get_command_args(char *user_input)
 		args = realloc(args, (arg_count + 1) * sizeof(char *));
 		if (args == NULL)
 		{
-			perror("Error:");
+			perror("realloc");
 			exit(EXIT_FAILURE);
 		}
 		args[arg_count] = strdup(token);
 		if (args[arg_count] == NULL)
 		{
-			perror("Error:");
+			perror("strdup");
 			exit(EXIT_FAILURE);
 		}
 		arg_count++;
@@ -33,7 +33,7 @@ char **get_command_args(char *user_input)
 	args = realloc(args, (arg_count + 1) * sizeof(char *));
 	if (args == NULL)
 	{
-		perror("Error:");
+		perror("realloc");
 		exit(EXIT_FAILURE);
 	}
 	args[arg_count] = NULL;
@@ -41,12 +41,12 @@ char **get_command_args(char *user_input)
 }
 
 /**
- * shelly_builtin - Check if a command is a built-in command
+ * is_builtin - Check if a command is a built-in command
  * @command: The command to check
  *
  * Return: 1 if built-in, 0 if not
  */
-int shelly_builtin(char *command)
+int is_builtin(char *command)
 {
 	if (command != NULL)
 	{
