@@ -3,14 +3,21 @@
 /**
  * execute_builtin_command - Execute a built-in shell command
  * @command: The command to execute
+ * @args: Array of command arguments
  *
  * This function executes built-in shell commands like "exit" and "env".
  */
-void execute_builtin_command(char *command)
+void execute_builtin_command(char *command, char **args)
 {
 	if (strcmp(command, "exit") == 0)
 	{
-		exit(EXIT_SUCCESS);
+		int exstatus = 0;
+
+		if (args[1] != NULL)
+			exstatus = atoi(args[1]);
+
+		free_shelly_args(args);
+		exit(exstatus);
 	}
 	else if (strcmp(command, "env") == 0)
 	{
@@ -21,6 +28,7 @@ void execute_builtin_command(char *command)
 			printf("%s\n", *env);
 			env++;
 		}
+		free_shelly_args(args);
 	}
 }
 
@@ -137,7 +145,7 @@ void execute_shelly_command(char *user_input)
 
 	if (shelly_builtin(command))
 	{
-		execute_builtin_command(command);
+		execute_builtin_command(command, args);
 	}
 	else
 	{
